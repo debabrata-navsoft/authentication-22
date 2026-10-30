@@ -1,1 +1,69 @@
-<p>signup works!</p>
+<div class="auth-page">
+  <form class="auth-card" (submit)="onSubmit($event)" novalidate>
+    <div class="auth-icon"><svg lucideIcon="user-plus" size="24"></svg></div>
+    <h1>Create an account</h1>
+    <p class="subtitle">Sign up to get started</p>
+
+    @if (errorMessage()) {
+      <div class="alert alert-error">
+        <svg lucideIcon="circle-alert" size="18"></svg>
+        <span>{{ errorMessage() }}</span>
+      </div>
+    }
+
+    <app-input-field
+      label="Full Name"
+      placeholder="Enter Your name"
+      autocomplete="name"
+      icon="user"
+      [field]="form.name"
+    />
+
+    <app-input-field
+      label="Email"
+      type="email"
+      placeholder="you@example.com"
+      autocomplete="email"
+      icon="mail"
+      [field]="form.email"
+    />
+
+    <app-input-field
+      label="Phone number"
+      type="tel"
+      placeholder="9876543210"
+      autocomplete="tel"
+      icon="phone"
+      [field]="form.phone"
+    />
+
+    <app-input-field
+      label="Password"
+      type="password"
+      placeholder="At least 6 characters"
+      autocomplete="new-password"
+      icon="lock"
+      [field]="form.password"
+    />
+
+    <app-input-field
+      label="Confirm password"
+      type="password"
+      placeholder="Re-enter your password"
+      autocomplete="new-password"
+      icon="lock"
+      [field]="form.confirmPassword"
+    />
+
+    <button class="btn btn-primary" type="submit" [disabled]="form().submitting()">
+      @if (form().submitting()) {
+        <svg lucideIcon="loader-circle" class="spin" size="18"></svg>
+      } @else {
+        <svg lucideIcon="user-plus" size="18"></svg>
+      }
+      {{ form().submitting() ? 'Creating account...' : 'Sign up' }}
+    </button>
+
+    <p class="footer-text">Already have an account? <a routerLink="/login">Log in</a></p>
+  </form>
+</div>

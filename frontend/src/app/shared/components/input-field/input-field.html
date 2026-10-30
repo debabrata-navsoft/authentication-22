@@ -1,1 +1,40 @@
-<p>input-field works!</p>
+<div class="field">
+  <label [for]="id">{{ label() }}</label>
+
+  <div class="input-wrapper" [class.has-icon]="icon()">
+    @if (icon(); as icon) {
+      <svg class="leading-icon" [lucideIcon]="icon" size="18" aria-hidden="true"></svg>
+    }
+
+    <input
+      [id]="id"
+      [type]="inputType()"
+      [formField]="field()"
+      [placeholder]="placeholder()"
+      [attr.autocomplete]="autocomplete()"
+      [class.invalid]="errorMessage()"
+    />
+
+    @if (type() === 'password') {
+      <button
+        type="button"
+        class="toggle"
+        (click)="showPassword.set(!showPassword())"
+        [attr.aria-label]="showPassword() ? 'Hide password' : 'Show password'"
+      >
+        @if (showPassword()) {
+          <svg lucideIcon="eye-off" size="18"></svg>
+        } @else {
+          <svg lucideIcon="eye" size="18"></svg>
+        }
+      </button>
+    }
+  </div>
+
+  @if (errorMessage()) {
+    <small class="error">
+      <svg lucideIcon="circle-alert" size="14"></svg>
+      {{ errorMessage() }}
+    </small>
+  }
+</div>

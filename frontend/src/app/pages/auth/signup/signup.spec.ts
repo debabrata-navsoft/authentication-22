@@ -1,4 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideLucideIcons } from '@lucide/angular';
+import { APP_ICONS } from '../../../shared/data/icons.data';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideRouter } from '@angular/router';
 import { Signup } from './signup';
 
 describe('Signup', () => {
@@ -8,6 +13,12 @@ describe('Signup', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Signup],
+      providers: [
+        provideLucideIcons(...APP_ICONS),
+        provideRouter([]),
+        provideHttpClient(),
+        provideHttpClientTesting(),
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Signup);

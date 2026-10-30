@@ -1,1 +1,47 @@
-<p>login works!</p>
+<div class="auth-page">
+  <form class="auth-card" (submit)="onSubmit($event)" novalidate>
+    <div class="auth-icon"><svg lucideIcon="log-in" size="24"></svg></div>
+    <h1>Welcome back</h1>
+    <p class="subtitle">Log in to your account</p>
+
+    @if (errorMessage()) {
+      <div class="alert alert-error">
+        <svg lucideIcon="circle-alert" size="18"></svg>
+        <span>{{ errorMessage() }}</span>
+      </div>
+    }
+
+    <app-input-field
+      label="Email"
+      type="email"
+      placeholder="you@example.com"
+      autocomplete="email"
+      icon="mail"
+      [field]="form.email"
+    />
+
+    <app-input-field
+      label="Password"
+      type="password"
+      placeholder="Your password"
+      autocomplete="current-password"
+      icon="lock"
+      [field]="form.password"
+    />
+
+    <div class="form-row-end">
+      <a routerLink="/forgot-password">Forgot password?</a>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="form().submitting()">
+      @if (form().submitting()) {
+        <svg lucideIcon="loader-circle" class="spin" size="18"></svg>
+      } @else {
+        <svg lucideIcon="log-in" size="18"></svg>
+      }
+      {{ form().submitting() ? 'Logging in...' : 'Log in' }}
+    </button>
+
+    <p class="footer-text">Don't have an account? <a routerLink="/signup">Sign up</a></p>
+  </form>
+</div>
