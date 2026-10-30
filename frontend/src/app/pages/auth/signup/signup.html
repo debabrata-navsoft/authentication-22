@@ -1,8 +1,10 @@
 <div class="auth-page">
   <form class="auth-card" (submit)="onSubmit($event)" novalidate>
-    <div class="auth-icon"><svg lucideIcon="user-plus" size="24"></svg></div>
-    <h1>Create an account</h1>
-    <p class="subtitle">Sign up to get started</p>
+    <div class="auth-title">
+      <div class="auth-icon"><svg lucideIcon="user-plus" size="24"></svg></div>
+      <h1>Create an account</h1>
+      <p class="subtitle">Sign up to get started</p>
+    </div>
 
     @if (errorMessage()) {
       <div class="alert alert-error">
