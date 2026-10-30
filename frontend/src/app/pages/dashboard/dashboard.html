@@ -1,8 +1,8 @@
 <div class="dashboard">
   <header class="topbar">
-    <span class="brand"><svg lucideIcon="shield-check" size="22"></svg> Auth App</span>
+    <span class="brand"><lucide-icon name="shield-check" [size]="22"></lucide-icon> Auth App</span>
     <button class="btn btn-outline" type="button" (click)="logout()">
-      <svg lucideIcon="log-out" size="18"></svg>
+      <lucide-icon name="log-out" [size]="18"></lucide-icon>
       Log out
     </button>
   </header>
@@ -14,19 +14,19 @@
 
       <div class="profile-card">
         <div class="row">
-          <span class="key"><svg lucideIcon="user" size="18"></svg> Name</span>
+          <span class="key"><lucide-icon name="user" [size]="18"></lucide-icon> Name</span>
           <span>{{ user.name }}</span>
         </div>
         <div class="row">
-          <span class="key"><svg lucideIcon="mail" size="18"></svg> Email</span>
+          <span class="key"><lucide-icon name="mail" [size]="18"></lucide-icon> Email</span>
           <span>{{ user.email }}</span>
         </div>
         <div class="row">
-          <span class="key"><svg lucideIcon="phone" size="18"></svg> Phone</span>
+          <span class="key"><lucide-icon name="phone" [size]="18"></lucide-icon> Phone</span>
           <span>{{ user.phone }}</span>
         </div>
         <div class="row">
-          <span class="key"><svg lucideIcon="calendar" size="18"></svg> Member since</span>
+          <span class="key"><lucide-icon name="calendar" [size]="18"></lucide-icon> Member since</span>
           <span>{{ user.createdAt | date: 'mediumDate' }}</span>
         </div>
       </div>

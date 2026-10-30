@@ -3,7 +3,7 @@
 
   <div class="input-wrapper" [class.has-icon]="icon()">
     @if (icon(); as icon) {
-      <svg class="leading-icon" [lucideIcon]="icon" size="18" aria-hidden="true"></svg>
+      <lucide-icon class="leading-icon" [name]="icon" [size]="18"></lucide-icon>
     }
 
     <input
@@ -23,9 +23,9 @@
         [attr.aria-label]="showPassword() ? 'Hide password' : 'Show password'"
       >
         @if (showPassword()) {
-          <svg lucideIcon="eye-off" size="18"></svg>
+          <lucide-icon name="eye-off" [size]="18"></lucide-icon>
         } @else {
-          <svg lucideIcon="eye" size="18"></svg>
+          <lucide-icon name="eye" [size]="18"></lucide-icon>
         }
       </button>
     }
@@ -33,7 +33,7 @@
 
   @if (errorMessage()) {
     <small class="error">
-      <svg lucideIcon="circle-alert" size="14"></svg>
+      <lucide-icon name="circle-alert" [size]="14"></lucide-icon>
       {{ errorMessage() }}
     </small>
   }

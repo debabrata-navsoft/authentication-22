@@ -1,10 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { LucideDynamicIcon } from '@lucide/angular';
 import { AuthService } from '../../core/services/auth.service';
+import { AppLucideIcon } from '../../shared/components/lucide-icon/lucide-icon';
 
 @Component({
-  imports: [DatePipe, LucideDynamicIcon],
+  imports: [DatePipe, AppLucideIcon],
   selector: 'app-dashboard',
   styleUrl: './dashboard.css',
   templateUrl: './dashboard.html',

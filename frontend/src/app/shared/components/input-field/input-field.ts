@@ -1,11 +1,11 @@
 import { Component, computed, input, signal } from '@angular/core';
 import { FieldTree, FormField } from '@angular/forms/signals';
-import { LucideDynamicIcon } from '@lucide/angular';
+import { AppLucideIcon } from '../lucide-icon/lucide-icon';
 
 let nextId = 0;
 
 @Component({
-  imports: [FormField, LucideDynamicIcon],
+  imports: [FormField, AppLucideIcon],
   selector: 'app-input-field',
   styleUrl: './input-field.css',
   templateUrl: './input-field.html',

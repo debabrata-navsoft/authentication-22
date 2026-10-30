@@ -1,14 +1,14 @@
 <div class="auth-page">
   <form class="auth-card" (submit)="onSubmit($event)" novalidate>
     <div class="auth-title">
-      <div class="auth-icon"><svg lucideIcon="user-plus" size="24"></svg></div>
+      <div class="auth-icon"><lucide-icon name="user-plus" [size]="24"></lucide-icon></div>
       <h1>Create an account</h1>
       <p class="subtitle">Sign up to get started</p>
     </div>
 
     @if (errorMessage()) {
       <div class="alert alert-error">
-        <svg lucideIcon="circle-alert" size="18"></svg>
+        <lucide-icon name="circle-alert" [size]="18"></lucide-icon>
         <span>{{ errorMessage() }}</span>
       </div>
     }
@@ -59,9 +59,9 @@
 
     <button class="btn btn-primary" type="submit" [disabled]="form().submitting()">
       @if (form().submitting()) {
-        <svg lucideIcon="loader-circle" class="spin" size="18"></svg>
+        <lucide-icon name="loader-circle" class="spin" [size]="18"></lucide-icon>
       } @else {
-        <svg lucideIcon="user-plus" size="18"></svg>
+        <lucide-icon name="user-plus" [size]="18"></lucide-icon>
       }
       {{ form().submitting() ? 'Creating account...' : 'Sign up' }}
     </button>

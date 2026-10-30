@@ -1,16 +1,16 @@
 import { Component, inject, signal } from '@angular/core';
 import { form, submit } from '@angular/forms/signals';
 import { Router, RouterLink } from '@angular/router';
-import { LucideDynamicIcon } from '@lucide/angular';
 import { firstValueFrom } from 'rxjs';
 import { AuthService } from '../../../core/services/auth.service';
 import { LoginPayload } from '../../../models/user.model';
 import { InputField } from '../../../shared/components/input-field/input-field';
+import { AppLucideIcon } from '../../../shared/components/lucide-icon/lucide-icon';
 import { loginSchema } from '../../../shared/schemas/auth.schema';
 import { getErrorMessage } from '../../../shared/utils/http-error';
 
 @Component({
-  imports: [RouterLink, InputField, LucideDynamicIcon],
+  imports: [RouterLink, InputField, AppLucideIcon],
   selector: 'app-login',
   styleUrl: './login.css',
   templateUrl: './login.html',
