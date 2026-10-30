@@ -2,11 +2,12 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": false
   },
   "newProjectRoot": "projects",
   "projects": {
-    "authentication-angular-22": {
+    "frontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -64,10 +65,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "authentication-angular-22:build:production"
+              "buildTarget": "frontend:build:production"
             },
             "development": {
-              "buildTarget": "authentication-angular-22:build:development"
+              "buildTarget": "frontend:build:development"
             }
           },
           "defaultConfiguration": "development"

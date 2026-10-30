@@ -1,5 +1,5 @@
 {
-  "name": "authentication-angular-22",
+  "name": "frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:authentication-angular-22": "node dist/authentication-angular-22/server/server.mjs"
+    "serve:ssr:frontend": "node dist/frontend/server/server.mjs"
   },
   "private": true,
   "packageManager": "npm@11.20.0",
