@@ -1,13 +1,14 @@
 /* Global styles shared by all pages */
 :root {
-  --primary: #4f46e5;
-  --primary-hover: #4338ca;
-  --danger: #dc2626;
-  --success: #16a34a;
-  --text: #1f2937;
-  --muted: #6b7280;
-  --border: #d1d5db;
-  --bg: #f3f4f6;
+  color-scheme: dark;
+  --primary: #f4f4f5;
+  --primary-hover: #d4d4d8;
+  --danger: #fca5a5;
+  --success: #86efac;
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+  --border: #3f3f46;
+  --bg: #09090b;
 }
 
 *,
@@ -66,9 +67,10 @@ h1 {
   width: 100%;
   max-width: 420px;
   padding: 32px;
-  background: #fff;
+  background: #111113;
+  border: 1px solid #27272a;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .form-row-end {
@@ -95,7 +97,7 @@ h1 {
   margin: 0 auto 16px;
   /* margin-bottom: 16px; */
   color: var(--primary);
-  background: #eef2ff;
+  background: #27272a;
   border-radius: 12px;
 }
 
@@ -128,7 +130,7 @@ h1 {
 
 .btn-primary {
   width: 100%;
-  color: #fff;
+  color: #09090b;
   background: var(--primary);
 }
 
@@ -139,12 +141,12 @@ h1 {
 
 .btn-outline {
   color: var(--primary);
-  background: #fff;
+  background: #111113;
   border-color: var(--primary);
 }
 
 .btn-outline:hover {
-  background: #eef2ff;
+  background: #27272a;
 }
 
 /* Alerts */
@@ -159,15 +161,15 @@ h1 {
 }
 
 .alert-error {
-  color: var(--danger);
-  background: #fef2f2;
-  border: 1px solid #fecaca;
+  color: #fca5a5;
+  background: #2a1719;
+  border: 1px solid #542629;
 }
 
 .alert-success {
-  color: var(--success);
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
+  color: #86efac;
+  background: #14251b;
+  border: 1px solid #294d37;
 }
 
 .alert svg {

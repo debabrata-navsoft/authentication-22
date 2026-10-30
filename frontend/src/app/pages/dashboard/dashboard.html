@@ -1,37 +1,157 @@
 <div class="dashboard">
-  <header class="topbar">
-    <span class="brand"><lucide-icon name="shield-check" [size]="22"></lucide-icon> Auth App</span>
-    <button class="btn btn-outline" type="button" (click)="logout()">
-      <lucide-icon name="log-out" [size]="18"></lucide-icon>
-      Log out
-    </button>
-  </header>
+  <aside class="sidebar">
+    <a class="brand" routerLink="/dashboard">
+      <span class="brand-mark"><lucide-icon name="shield-check" [size]="21"></lucide-icon></span>
+      <span>Auth<span class="brand-light">space</span></span>
+    </a>
 
-  <main class="content">
-    @if (user(); as user) {
-      <h1>Hello, {{ user.name }} 👋</h1>
-      <p class="subtitle">You are logged in.</p>
+    <p class="nav-label">WORKSPACE</p>
+    <nav aria-label="Dashboard navigation">
+      <a class="nav-link active" routerLink="/dashboard" aria-current="page">
+        <lucide-icon name="user" [size]="18"></lucide-icon>
+        Overview
+      </a>
+      <a class="nav-link" href="#account-details">
+        <lucide-icon name="user" [size]="18"></lucide-icon>
+        Account details
+      </a>
+      <a class="nav-link" href="#security">
+        <lucide-icon name="shield-check" [size]="18"></lucide-icon>
+        Security
+      </a>
+    </nav>
 
-      <div class="profile-card">
-        <div class="row">
-          <span class="key"><lucide-icon name="user" [size]="18"></lucide-icon> Name</span>
-          <span>{{ user.name }}</span>
+    <div class="sidebar-bottom">
+      @if (user(); as user) {
+        <div class="sidebar-user">
+          <span class="user-avatar"><lucide-icon name="user" [size]="18"></lucide-icon></span>
+          <span class="sidebar-user-info">
+            <strong>{{ user.name }}</strong>
+            <small>Personal account</small>
+          </span>
         </div>
-        <div class="row">
-          <span class="key"><lucide-icon name="mail" [size]="18"></lucide-icon> Email</span>
-          <span>{{ user.email }}</span>
+      }
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <span class="breadcrumb">Workspace <span>/</span> Overview</span>
+      <button class="logout-button" type="button" (click)="logout()">
+        <lucide-icon name="log-out" [size]="17"></lucide-icon>
+        <span>Log out</span>
+      </button>
+    </header>
+
+    <div class="content">
+      @if (user(); as user) {
+        <section class="welcome">
+          <div>
+            <p class="eyebrow">YOUR ACCOUNT</p>
+            <h1>Welcome back, {{ user.name }}</h1>
+            <p class="welcome-copy">Here’s an overview of your account and personal details.</p>
+          </div>
+          <span class="status-badge">
+            <span class="status-dot"></span>
+            Signed in
+          </span>
+        </section>
+
+        <section class="summary-grid" aria-label="Account summary">
+          <article class="summary-card">
+            <span class="summary-icon purple"><lucide-icon name="user" [size]="19"></lucide-icon></span>
+            <div>
+              <p>ACCOUNT</p>
+              <strong>Personal profile</strong>
+            </div>
+          </article>
+          <article class="summary-card">
+            <span class="summary-icon green"><lucide-icon name="shield-check" [size]="19"></lucide-icon></span>
+            <div>
+              <p>STATUS</p>
+              <strong>Active</strong>
+            </div>
+          </article>
+          <article class="summary-card">
+            <span class="summary-icon amber"><lucide-icon name="calendar" [size]="19"></lucide-icon></span>
+            <div>
+              <p>MEMBER SINCE</p>
+              <strong>{{ user.createdAt | date: 'mediumDate' }}</strong>
+            </div>
+          </article>
+        </section>
+
+        <div class="detail-grid">
+          <section class="panel profile-panel" id="account-details">
+            <div class="panel-heading">
+              <div>
+                <h2>Personal information</h2>
+                <p>Your profile details in one place.</p>
+              </div>
+              <span class="panel-heading-icon"><lucide-icon name="user" [size]="19"></lucide-icon></span>
+            </div>
+
+            <div class="profile-banner">
+              <span class="profile-avatar"><lucide-icon name="user" [size]="25"></lucide-icon></span>
+              <div>
+                <strong>{{ user.name }}</strong>
+                <span>Account holder</span>
+              </div>
+            </div>
+
+            <div class="detail-list">
+              <div class="detail-row">
+                <span class="detail-icon"><lucide-icon name="mail" [size]="17"></lucide-icon></span>
+                <span class="detail-label">Email address</span>
+                <strong>{{ user.email }}</strong>
+              </div>
+              <div class="detail-row">
+                <span class="detail-icon"><lucide-icon name="phone" [size]="17"></lucide-icon></span>
+                <span class="detail-label">Phone number</span>
+                <strong>{{ user.phone }}</strong>
+              </div>
+              <div class="detail-row">
+                <span class="detail-icon"><lucide-icon name="calendar" [size]="17"></lucide-icon></span>
+                <span class="detail-label">Joined</span>
+                <strong>{{ user.createdAt | date: 'longDate' }}</strong>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel security-panel" id="security">
+            <div class="panel-heading">
+              <div>
+                <h2>Security</h2>
+                <p>Manage your sign-in details.</p>
+              </div>
+              <span class="panel-heading-icon secure"><lucide-icon name="shield-check" [size]="19"></lucide-icon></span>
+            </div>
+
+            <div class="security-callout">
+              <span class="security-icon"><lucide-icon name="lock" [size]="20"></lucide-icon></span>
+              <div>
+                <strong>Your account is secure</strong>
+                <p>Use a unique password to help keep your account protected.</p>
+              </div>
+            </div>
+
+            <a class="security-link" routerLink="/forgot-password">
+              <span class="security-link-icon"><lucide-icon name="key-round" [size]="17"></lucide-icon></span>
+              <span>
+                <strong>Reset your password</strong>
+                <small>We’ll send a secure reset link to your email.</small>
+              </span>
+              <lucide-icon class="link-arrow" name="arrow-left" [size]="16"></lucide-icon>
+            </a>
+          </section>
         </div>
-        <div class="row">
-          <span class="key"><lucide-icon name="phone" [size]="18"></lucide-icon> Phone</span>
-          <span>{{ user.phone }}</span>
-        </div>
-        <div class="row">
-          <span class="key"><lucide-icon name="calendar" [size]="18"></lucide-icon> Member since</span>
-          <span>{{ user.createdAt | date: 'mediumDate' }}</span>
-        </div>
-      </div>
-    } @else {
-      <p>Loading...</p>
-    }
+      } @else {
+        <section class="loading-panel" aria-live="polite">
+          <span class="loading-icon"><lucide-icon name="loader-circle" [size]="22"></lucide-icon></span>
+          <h1>Loading your account</h1>
+          <p>Your dashboard will be ready in a moment.</p>
+        </section>
+      }
+    </div>
   </main>
 </div>
